@@ -6,6 +6,7 @@ import com.food.ordering.tech.domain.valueobject.OrderId;
 import com.food.ordering.tech.order.service.domain.valueobject.OrderItemId;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 public class OrderItem extends BaseEntity<OrderItemId> {
 
