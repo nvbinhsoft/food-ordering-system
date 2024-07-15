@@ -5,6 +5,8 @@ import com.food.ordering.tech.domain.valueobject.Money;
 import com.food.ordering.tech.domain.valueobject.OrderId;
 import com.food.ordering.tech.order.service.domain.valueobject.OrderItemId;
 
+import java.math.BigDecimal;
+
 public class OrderItem extends BaseEntity<OrderItemId> {
 
     private OrderId orderId;
@@ -18,11 +20,11 @@ public class OrderItem extends BaseEntity<OrderItemId> {
         super.setId(orderItemId);
     }
 
-//    boolean isPriceValid() {
-//        return price.isGreaterThanZero() &&
-//                price.equals(product.getPrice()) &&
-//                price.multiply(quantity).equals(subTotal);
-//    }
+    boolean isPriceValid() {
+        return price.isGreaterThanZero() &&
+                price.equals(product.getPrice()) &&
+                price.multiply(BigDecimal.valueOf(quantity)).equals(subTotal);
+    }
 
     private OrderItem(Builder builder) {
         super.setId(builder.orderItemId);

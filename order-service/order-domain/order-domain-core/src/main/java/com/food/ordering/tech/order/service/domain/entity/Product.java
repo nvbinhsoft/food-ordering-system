@@ -4,7 +4,9 @@ import com.food.ordering.tech.domain.entity.BaseEntity;
 import com.food.ordering.tech.domain.valueobject.BaseId;
 import com.food.ordering.tech.domain.valueobject.Money;
 import com.food.ordering.tech.domain.valueobject.ProductId;
+import lombok.Getter;
 
+@Getter
 public class Product extends BaseEntity<ProductId> {
 
     private String name;

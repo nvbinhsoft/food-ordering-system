@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class OrderItemId extends BaseId<Long> {
 
-    protected OrderItemId(Long value) {
+    public OrderItemId(Long value) {
         super(value);
     }
 }
