@@ -11,9 +11,15 @@ import java.util.UUID;
 @Getter
 @Builder
 @AllArgsConstructor
-public record OrderItem(
-        @NotNull UUID productId,
-        @NotNull Integer quantity,
-        @NotNull BigDecimal price,
-        @NotNull BigDecimal subTotal
-) {}
+public class OrderItem {
+
+    @NotNull
+    private final UUID productId;
+    @NotNull
+    private final Integer quantity;
+    @NotNull
+    private final BigDecimal price;
+    @NotNull
+    private final BigDecimal subTotal;
+
+}
