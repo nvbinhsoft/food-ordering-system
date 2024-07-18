@@ -16,16 +16,16 @@ public class OrderCreateCommandHandler {
 
     private final OrderCreateHelper orderCreateHelper;
     private final OrderDataMapper orderDataMapper;
-    private final PaymentOutboxHelper paymentOutboxHelper;
+//    private final PaymentOutboxHelper paymentOutboxHelper;
     private final OrderSagaHelper orderSagaHelper;
 
     public OrderCreateCommandHandler(OrderCreateHelper orderCreateHelper,
                                      OrderDataMapper orderDataMapper,
-                                     PaymentOutboxHelper paymentOutboxHelper,
+//                                     PaymentOutboxHelper paymentOutboxHelper,
                                      OrderSagaHelper orderSagaHelper) {
         this.orderCreateHelper = orderCreateHelper;
         this.orderDataMapper = orderDataMapper;
-        this.paymentOutboxHelper = paymentOutboxHelper;
+//        this.paymentOutboxHelper = paymentOutboxHelper;
         this.orderSagaHelper = orderSagaHelper;
     }
 
@@ -36,12 +36,12 @@ public class OrderCreateCommandHandler {
         CreateOrderResponse createOrderResponse = orderDataMapper.orderToCreateOrderResponse(orderCreatedEvent.getOrder(),
                 "Order created successfully");
 
-        paymentOutboxHelper.savePaymentOutboxMessage(orderDataMapper
-                        .orderCreatedEventToOrderPaymentEventPayload(orderCreatedEvent),
-                orderCreatedEvent.getOrder().getOrderStatus(),
-                orderSagaHelper.orderStatusToSagaStatus(orderCreatedEvent.getOrder().getOrderStatus()),
-                OutboxStatus.STARTED,
-                UUID.randomUUID());
+//        paymentOutboxHelper.savePaymentOutboxMessage(orderDataMapper
+//                        .orderCreatedEventToOrderPaymentEventPayload(orderCreatedEvent),
+//                orderCreatedEvent.getOrder().getOrderStatus(),
+//                orderSagaHelper.orderStatusToSagaStatus(orderCreatedEvent.getOrder().getOrderStatus()),
+//                OutboxStatus.STARTED,
+//                UUID.randomUUID());
 
         log.info("Returning CreateOrderResponse with order id: {}", orderCreatedEvent.getOrder().getId());
 
