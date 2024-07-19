@@ -11,7 +11,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
-import jakarta.annotation.PreDestroy;
+
+import javax.annotation.PreDestroy;
 import java.io.Serializable;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
